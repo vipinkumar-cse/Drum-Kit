@@ -7,6 +7,7 @@ for(var i=0;i<numberofbuttons;i++){
 
 function play(){
   soundselect(this.textContent);
+  buttonpressed(this.textContent);
 
 
 
@@ -17,6 +18,7 @@ function play(){
 document.addEventListener("keypress", function (event){
   // console.log(event.key);
   soundselect(event.key);
+  buttonpressed(event.key);
 })
 
 //function for switch case sounds
@@ -48,5 +50,16 @@ function soundselect(value)
                 audio.play();
                 break;
               }
+
+}
+
+
+function buttonpressed(key){
+  document.querySelector("."+key).classList.add("pressed");
+
+  setTimeout(function () {
+    document.querySelector("."+key).classList.remove("pressed");
+  }, 100);
+
 
 }
